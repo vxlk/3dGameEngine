@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT name="Cling" projectType="guiapp" jucerVersion="5.3.1">
+  <MAINGROUP id="s1YpRx" name="Cling">
+    <GROUP id="{52A10BAC-BB4A-25C1-8A75-2F246260500E}" name="Source">
+      <FILE id="L1k0nD" name="3dMouseEvent.cpp" compile="1" resource="0"
+            file="Source/3dMouseEvent.cpp"/>
+      <FILE id="XZsd7W" name="3dMouseEvent.h" compile="0" resource="0" file="Source/3dMouseEvent.h"/>
+      <FILE id="mJBVJR" name="Primitives.cpp" compile="1" resource="0" file="Source/Primitives.cpp"/>
+      <FILE id="BfCL9X" name="Primitives.h" compile="0" resource="0" file="Source/Primitives.h"/>
+      <FILE id="MaSWIS" name="Types.h" compile="0" resource="0" file="Source/Types.h"/>
+      <FILE id="ezhDrN" name="MouseTranslationController.cpp" compile="1"
+            resource="0" file="Source/MouseTranslationController.cpp"/>
+      <FILE id="eDMa6t" name="MouseTranslationController.h" compile="0" resource="0"
+            file="Source/MouseTranslationController.h"/>
+      <FILE id="ig3Fpw" name="Texture.cpp" compile="1" resource="0" file="Source/Texture.cpp"/>
+      <FILE id="l7yooh" name="Texture.h" compile="0" resource="0" file="Source/Texture.h"/>
+      <FILE id="eVE5Z9" name="MainOverlay.cpp" compile="1" resource="0" file="Source/MainOverlay.cpp"/>
+      <FILE id="MMsYr5" name="MainOverlay.h" compile="0" resource="0" file="Source/MainOverlay.h"/>
+      <FILE id="SO1Rmg" name="Camera.cpp" compile="1" resource="0" file="Source/Camera.cpp"/>
+      <FILE id="WK1j4x" name="Camera.h" compile="0" resource="0" file="Source/Camera.h"/>
+      <FILE id="HPpcU1" name="Utils.h" compile="0" resource="0" file="Source/Utils.h"/>
+      <FILE id="v7Ph7j" name="Shape.cpp" compile="1" resource="0" file="Source/Shape.cpp"/>
+      <FILE id="VvJtcV" name="Shape.h" compile="0" resource="0" file="Source/Shape.h"/>
+      <FILE id="JNYNV7" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="nTwFbl" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="yBbjby" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="XbbwZG" name="Shader.cpp" compile="1" resource="0" file="Source/Shader.cpp"/>
+      <FILE id="PogDHg" name="Shader.h" compile="0" resource="0" file="Source/Shader.h"/>
+      <FILE id="nVBFG9" name="WavefrontObjParser.h" compile="0" resource="0"
+            file="Source/WavefrontObjParser.h"/>
+      <FILE id="ZJpuKV" name="Input.cpp" compile="1" resource="0" file="Source/Input.cpp"/>
+      <FILE id="PlL1ZN" name="Input.h" compile="0" resource="0" file="Source/Input.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
+  <EXPORTFORMATS>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../modules"/>
+        <MODULEPATH id="juce_events" path="../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../modules"/>
+        <MODULEPATH id="juce_video" path="../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2017>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../modules"/>
+        <MODULEPATH id="juce_events" path="../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../modules"/>
+        <MODULEPATH id="juce_video" path="../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2015>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
