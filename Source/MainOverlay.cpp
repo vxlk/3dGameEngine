@@ -42,17 +42,17 @@ MainOverlay::MainOverlay(MainComponent& m) : demo(m)
 	addAndMakeVisible(speedLabel);
 	speedLabel.attachToComponent(&speedSlider, true);
 
-	addAndMakeVisible(showBackgroundToggle);
-	showBackgroundToggle.onClick = [this] { demo.doBackgroundDrawing = showBackgroundToggle.getToggleState(); };
+	addAndMakeVisible(moveButton);
+	moveButton.onClick = [this] { demo.doBackgroundDrawing = moveButton.getToggleState(); };
 
 	addAndMakeVisible(tabbedComp);
 	tabbedComp.setTabBarDepth(25);
 	tabbedComp.setColour(TabbedButtonBar::tabTextColourId, Colours::grey);
-	tabbedComp.addTab("Vertex", Colours::transparentBlack, &vertexEditorComp, false);
-	tabbedComp.addTab("Fragment", Colours::transparentBlack, &fragmentEditorComp, false);
+	tabbedComp.addTab("Input", Colours::transparentBlack, &vertexEditorComp, false);
+	tabbedComp.addTab("Log", Colours::transparentBlack, &fragmentEditorComp, false);
 
-	vertexDocument.addListener(this);
-	fragmentDocument.addListener(this);
+	inputDocument.addListener(this);
+	logDocument.addListener(this);
 
 	textures.add(new TextureFromUI("portmeirion.jpg"));
 	textures.add(new TextureFromUI("tile_background.png"));
@@ -94,8 +94,8 @@ void MainOverlay::selectPreset(int preset)
 {
 	const auto& p = getPresets()[preset];
 
-	vertexDocument.replaceAllContent(p.vertexShader);
-	fragmentDocument.replaceAllContent(p.fragmentShader);
+	inputDocument.replaceAllContent(p.vertexShader);
+	logDocument.replaceAllContent(p.fragmentShader);
 
 	startTimer(1);
 }
@@ -143,8 +143,8 @@ void MainOverlay::selectTexture(int itemID)
 void MainOverlay::timerCallback()
 {
 	stopTimer();
-	demo.setShaderProgram(vertexDocument.getAllContent(),
-		fragmentDocument.getAllContent());
+	demo.setShaderProgram(inputDocument.getAllContent(),
+		logDocument.getAllContent());
 }
 
 void MainOverlay::paint (Graphics& g)
@@ -166,7 +166,7 @@ void MainOverlay::resized()
 	auto top = area.removeFromTop(75);
 
 	auto sliders = top.removeFromRight(area.getWidth() / 2);
-	showBackgroundToggle.setBounds(sliders.removeFromBottom(25));
+	moveButton.setBounds(sliders.removeFromBottom(25));
 	speedSlider.setBounds(sliders.removeFromBottom(25));
 	sizeSlider.setBounds(sliders.removeFromBottom(25));
 
@@ -188,7 +188,7 @@ void MainOverlay::resized()
 
 void MainOverlay::initialize()
 {
-	showBackgroundToggle.setToggleState (false, sendNotification);
+	moveButton.setToggleState (false, sendNotification);
             textureBox.setSelectedItemIndex (0);
             presetBox .setSelectedItemIndex (0);
             speedSlider.setValue (0.01);

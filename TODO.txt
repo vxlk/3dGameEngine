@@ -1,0 +1,7 @@
+Last Updated:11/8/18
+
+Make it so shader presets are not relying on code documents
+
+Make object moveable and rotatable
+
+Make Detachable Camera Class

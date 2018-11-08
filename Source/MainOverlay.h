@@ -99,9 +99,9 @@ private:
 	Label speedLabel { {}, "Speed:" },
 		  zoomLabel  { {}, "Zoom:" };
 
-	CodeDocument vertexDocument, fragmentDocument;
-	CodeEditorComponent vertexEditorComp{ vertexDocument,   nullptr },
-		fragmentEditorComp{ fragmentDocument, nullptr };
+	CodeDocument inputDocument, logDocument;
+	CodeEditorComponent vertexEditorComp{ inputDocument,   nullptr },
+		fragmentEditorComp{ logDocument, nullptr };
 
 	TabbedComponent tabbedComp{ TabbedButtonBar::TabsAtLeft };
 

@@ -95,7 +95,11 @@ public:
 		openGLContext.extensions.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 		if (!controlsOverlay->isMouseButtonDown())
+		{
 			rotation += (float)rotationSpeed;
+
+		}
+
 	}
 
 	Matrix3D<float> getProjectionMatrix() const
