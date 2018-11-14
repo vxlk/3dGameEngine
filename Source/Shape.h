@@ -120,11 +120,23 @@ struct Shape
 {
 	Shape(OpenGLContext& openGLContext)
 	{
+		/*
 		if (shapeFile.load(loadEntireAssetIntoString("ElvenLongBow.obj")).wasOk())
 			for (auto* s : shapeFile.shapes)
 				vertexBuffers.add(new VertexBuffer(openGLContext, *s));
-	}
+		*/
 
+		//open object folder
+		DirectoryIterator iter(getExamplesDirectory().getChildFile("Assets"), true, "*.obj");
+		//getExamplesDirectory().getChildFile("Assets");
+
+		while (iter.next())
+		{
+			if (shapeFile.load(loadEntireAssetIntoString(iter.getFile().getFileName().toUTF8())).wasOk())
+				for (auto* s : shapeFile.shapes)
+					vertexBuffers.add(new VertexBuffer(openGLContext, *s));
+		}
+	}
 	void draw(OpenGLContext& openGLContext, Attributes& attributes)
 	{
 		for (auto* vertexBuffer : vertexBuffers)

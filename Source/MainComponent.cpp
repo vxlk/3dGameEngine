@@ -14,7 +14,12 @@ MainComponent::MainComponent()
 
 	if (auto* peer = getPeer())
 		peer->setCurrentRenderingEngine(0);
-		
+	
+
+	/*
+	TODO: CREATE ASSET FOLDERS UPON 1ST LOAD IF NOT EXIST
+	
+	*/
 	setOpaque(true);
 	controlsOverlay.reset(new MainOverlay(*this));
 	addAndMakeVisible(controlsOverlay.get());
@@ -78,7 +83,7 @@ void MainComponent::paint (Graphics& g)
 	
 	g.setColour(getLookAndFeel().findColour(Label::textColourId));
 	g.setFont(20);
-	g.drawText("Cling", 25, 20, 100, 30, Justification::left);
+	g.drawText("Cling", 25, 25, 100, 30, Justification::left);
 	g.drawLine(20, 20, 100, 20);
 	g.drawLine(20, 50, 100, 50);
 	
