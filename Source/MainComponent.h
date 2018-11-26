@@ -94,6 +94,8 @@ public:
 		openGLContext.extensions.glBindBuffer(GL_ARRAY_BUFFER, 0);
 		openGLContext.extensions.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+
+		///where you will handle movement of an object
 		if (!controlsOverlay->isMouseButtonDown())
 		{
 			rotation += (float)rotationSpeed;

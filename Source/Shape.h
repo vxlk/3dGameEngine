@@ -13,6 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "WavefrontObjParser.h"
 #include "Utils.h"
+#include "Shader.h"
 
 //==============================================================================
 struct Vertex
@@ -118,14 +119,15 @@ that we can draw.
 */
 struct Shape
 {
-	Shape(OpenGLContext& openGLContext)
+	Shape(OpenGLContext& openGLContext, DirectoryIterator* it)
 	{
-		/*
-		if (shapeFile.load(loadEntireAssetIntoString("ElvenLongBow.obj")).wasOk())
+		
+		if (shapeFile.load(loadEntireAssetIntoString(it->getFile().getFileName().toUTF8())).wasOk())
 			for (auto* s : shapeFile.shapes)
 				vertexBuffers.add(new VertexBuffer(openGLContext, *s));
-		*/
+		
 
+		/*
 		//open object folder
 		DirectoryIterator iter(getExamplesDirectory().getChildFile("Assets"), true, "*.obj");
 		//getExamplesDirectory().getChildFile("Assets");
@@ -136,6 +138,7 @@ struct Shape
 				for (auto* s : shapeFile.shapes)
 					vertexBuffers.add(new VertexBuffer(openGLContext, *s));
 		}
+		*/
 	}
 	void draw(OpenGLContext& openGLContext, Attributes& attributes)
 	{
@@ -147,6 +150,11 @@ struct Shape
 			glDrawElements(GL_TRIANGLES, vertexBuffer->numIndices, GL_UNSIGNED_INT, 0);
 			attributes.disable(openGLContext);
 		}
+	}
+
+	void updateShader(const ShaderPreset& newShader)
+	{
+		currentShader = newShader;
 	}
 
 private:
@@ -215,4 +223,25 @@ private:
 			{ tc.x, tc.y } });
 		}
 	}
+
+	ShaderPreset currentShader;
+};
+
+class shapeCollection
+{
+public:
+	shapeCollection(OpenGLContext& context)
+	{
+		//open object folder
+		iter = new DirectoryIterator(getExamplesDirectory().getChildFile("Assets"), true, "*.obj");
+
+		while (iter->next())
+			collection.push_back(new Shape(context, iter));
+	}
+	~shapeCollection();
+
+
+private:
+	std::vector<ScopedPointer<Shape> > collection;
+	ScopedPointer<DirectoryIterator> iter;
 };

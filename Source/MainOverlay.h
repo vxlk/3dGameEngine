@@ -15,6 +15,7 @@
 #include "Shader.h"
 #include "Shape.h"
 #include "Texture.h"
+#include "FileBrowser.h"
 
 class MainComponent;
 
@@ -66,6 +67,7 @@ public:
 
 private:
 	void selectTexture(int itemID);
+	void selectObject(int objID);
 
 	void codeDocumentTextInserted(const String& /*newText*/, int /*insertIndex*/) override
 	{
@@ -99,16 +101,25 @@ private:
 	Label speedLabel { {}, "Speed:" },
 		  zoomLabel  { {}, "Zoom:" };
 
+	//logging
 	CodeDocument inputDocument, logDocument;
 	CodeEditorComponent vertexEditorComp{ inputDocument,   nullptr },
 		fragmentEditorComp{ logDocument, nullptr };
 
+	//files
+	/*
+	ScopedPointer<FileBrowserComponent> fileBrowser;
+	FileBrowserListener fbListener;
+	*/
+	//FileBrowser fileBrowser;
+
 	TabbedComponent tabbedComp{ TabbedButtonBar::TabsAtLeft };
 
-	ComboBox presetBox, textureBox;
+	ComboBox presetBox, textureBox, objectBox;
 
-	Label presetLabel{ {}, "Shader Preset:" },
-		textureLabel{ {}, "Texture:" };
+	Label presetLabel{ {}, "Shader:" },
+		  textureLabel{ {}, "Texture:" },
+		  objectLabel{ {}, "Object:" };
 
 	Slider speedSlider, sizeSlider;
 

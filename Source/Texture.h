@@ -13,7 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Utils.h"
 
-static Image resizeImageToPowerOfTwo(Image image)
+inline static Image resizeImageToPowerOfTwo(Image image)
 {
 	if (!(isPowerOfTwo(image.getWidth()) && isPowerOfTwo(image.getHeight())))
 		return image.rescaled(jmin(1024, nextPowerOfTwo(image.getWidth())),

@@ -47,13 +47,17 @@ MainOverlay::MainOverlay(MainComponent& m) : demo(m)
 
 	addAndMakeVisible(tabbedComp);
 	tabbedComp.setTabBarDepth(25);
+
 	tabbedComp.setColour(TabbedButtonBar::tabTextColourId, Colours::grey);
 	tabbedComp.addTab("Input", Colours::transparentBlack, &vertexEditorComp, false);
 	tabbedComp.addTab("Log", Colours::transparentBlack, &fragmentEditorComp, false);
+	//tabbedComp.addTab("Files", Colours::transparentBlack, &fileBrowser, false);
 
 	inputDocument.addListener(this);
 	logDocument.addListener(this);
+	
 
+	//go to file location, get all file names, load all of them
 	textures.add(new TextureFromUI("portmeirion.jpg"));
 	textures.add(new TextureFromUI("tile_background.png"));
 	textures.add(new TextureFromUI("juce_icon.png"));
@@ -65,6 +69,9 @@ MainOverlay::MainOverlay(MainComponent& m) : demo(m)
 
 	addAndMakeVisible(presetBox);
 	presetBox.onChange = [this] { selectPreset(presetBox.getSelectedItemIndex()); };
+
+	addAndMakeVisible(objectBox);
+	objectBox.onChange = [this] { selectObject(objectBox.getSelectedItemIndex()); };
 
 	auto presets = getPresets();
 
@@ -113,6 +120,12 @@ void MainOverlay::updateTexturesList()
 #endif
 }
 
+void MainOverlay::selectObject(int index)
+{
+	//array of shapes, select from the index and load into the scene
+	//currShape = objectList[index];
+}
+
 void MainOverlay::selectTexture(int itemID)
 {
 #if JUCE_MODAL_LOOPS_PERMITTED
@@ -143,6 +156,22 @@ void MainOverlay::selectTexture(int itemID)
 void MainOverlay::timerCallback()
 {
 	stopTimer();
+	/*
+	Instead of reading the texture from the text box
+	create an object that has a model and a texture
+	have an array of stored textures
+
+	Object.h
+		vertex shader
+		fragment shader
+		obj
+
+	//worry about later
+	call from array depending on which texture is selected. How to select textures?
+
+	///make a box part of overlay that lists all textures in texture folder...
+	///onClick() get the name of the texture and reload and send to shaderProgram
+	*/
 	demo.setShaderProgram(inputDocument.getAllContent(),
 		logDocument.getAllContent());
 }
